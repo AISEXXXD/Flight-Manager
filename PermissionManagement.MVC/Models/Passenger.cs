@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Numerics;
 
 namespace PermissionManagement.MVC.Models
 {
@@ -31,5 +32,14 @@ namespace PermissionManagement.MVC.Models
         [Required]
         [StringLength(100)]
         public string TicketType { get; set; }
+
+        // existing properties
+
+        [Display(Name = "Plane")]
+        public int PlaneId { get; set; }
+        public Plane Plane { get; set; }
+
+
+
     }
 }
