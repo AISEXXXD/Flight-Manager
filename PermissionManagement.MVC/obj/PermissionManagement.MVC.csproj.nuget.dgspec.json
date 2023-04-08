@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\VS projects\\GitClones\\FlightManager Backup\\PermissionManagement.MVC\\PermissionManagement.MVC.csproj": {}
+    "D:\\VS projects\\GitClones\\Real Flight Manager\\Flight Manager\\PermissionManagement.MVC\\PermissionManagement.MVC.csproj": {}
   },
   "projects": {
-    "D:\\VS projects\\GitClones\\FlightManager Backup\\PermissionManagement.MVC\\PermissionManagement.MVC.csproj": {
+    "D:\\VS projects\\GitClones\\Real Flight Manager\\Flight Manager\\PermissionManagement.MVC\\PermissionManagement.MVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VS projects\\GitClones\\FlightManager Backup\\PermissionManagement.MVC\\PermissionManagement.MVC.csproj",
+        "projectUniqueName": "D:\\VS projects\\GitClones\\Real Flight Manager\\Flight Manager\\PermissionManagement.MVC\\PermissionManagement.MVC.csproj",
         "projectName": "PermissionManagement.MVC",
-        "projectPath": "D:\\VS projects\\GitClones\\FlightManager Backup\\PermissionManagement.MVC\\PermissionManagement.MVC.csproj",
+        "projectPath": "D:\\VS projects\\GitClones\\Real Flight Manager\\Flight Manager\\PermissionManagement.MVC\\PermissionManagement.MVC.csproj",
         "packagesPath": "C:\\Users\\redst\\.nuget\\packages\\",
-        "outputPath": "D:\\VS projects\\GitClones\\FlightManager Backup\\PermissionManagement.MVC\\obj\\",
+        "outputPath": "D:\\VS projects\\GitClones\\Real Flight Manager\\Flight Manager\\PermissionManagement.MVC\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\redst\\AppData\\Roaming\\NuGet\\NuGet.Config",

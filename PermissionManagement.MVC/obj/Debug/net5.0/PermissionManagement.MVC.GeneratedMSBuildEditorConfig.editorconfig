@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = PermissionManagement.MVC
-build_property.ProjectDir = D:\VS projects\GitClones\FlightManager Backup\PermissionManagement.MVC\
+build_property.ProjectDir = D:\VS projects\GitClones\Real Flight Manager\Flight Manager\PermissionManagement.MVC\
