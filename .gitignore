@@ -338,3 +338,4 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/PermissionManagement.MVC/Controllers/PassengersController.cs
