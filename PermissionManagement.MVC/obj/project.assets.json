@@ -7839,19 +7839,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\redst\\.nuget\\packages\\": {}
+    "C:\\Users\\ghzUser\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\VS projects\\GitClones\\Flight Manager\\PermissionManagement.MVC\\PermissionManagement.MVC.csproj",
+      "projectUniqueName": "C:\\Users\\ghzUser\\Desktop\\clone 4\\PermissionManagement.MVC\\PermissionManagement.MVC.csproj",
       "projectName": "PermissionManagement.MVC",
-      "projectPath": "D:\\VS projects\\GitClones\\Flight Manager\\PermissionManagement.MVC\\PermissionManagement.MVC.csproj",
-      "packagesPath": "C:\\Users\\redst\\.nuget\\packages\\",
-      "outputPath": "D:\\VS projects\\GitClones\\Flight Manager\\PermissionManagement.MVC\\obj\\",
+      "projectPath": "C:\\Users\\ghzUser\\Desktop\\clone 4\\PermissionManagement.MVC\\PermissionManagement.MVC.csproj",
+      "packagesPath": "C:\\Users\\ghzUser\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ghzUser\\Desktop\\clone 4\\PermissionManagement.MVC\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\redst\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ghzUser\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7915,6 +7915,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[5.0.17, 5.0.17]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -7923,7 +7929,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
