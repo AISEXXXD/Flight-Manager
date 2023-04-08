@@ -1,4 +1,4 @@
-﻿@using Microsoft.AspNetCore.Identity;
+﻿@*@using Microsoft.AspNetCore.Identity;
 @model IEnumerable<IdentityUser>
 <h1>User List</h1>
 <br />
@@ -54,9 +54,10 @@
             </tr>
         }
     </tbody>
-</table>
-@using Microsoft.AspNetCore.Identity;
-@model IEnumerable<IdentityRole>
+</table>*@
+
+@*@using Microsoft.AspNetCore.Identity;
+@model IEnumerable<IdentityUser>
 <h1>Users</h1>
 <br />
 <form method="post" asp-action="addrole" asp-controller="roles">
@@ -67,14 +68,14 @@
         </span>
     </div>
 </form>
-<table class="table table-striped" id="roleTable">
+<table class="table table-striped" id="userTable">
     <thead>
         <tr>
             <th>
-                Role
+                User
             </th>
             <th>
-                Id
+                Email
             </th>
 
             <th style="width:10%">
@@ -84,38 +85,233 @@
     </thead>
     <tbody>
 
-        @foreach (var role in Model)
+        @foreach (var user in Model)
         {
             <tr>
                 <td>
-                    @role.Users
+                    <div class="row">
+                        <div class="col-sm">
+                            <a>
+                                @user.UserName
+                            </a>
+                            <br>
+                            <small>
+                                @user.Id
+                            </small>
+                        </div>
+                    </div>
                 </td>
                 <td>
-                    @role.Id
+                    <a>
+                        @user.Email
+                    </a>
                 </td>
-                a                <td class="text-right">
+                <td>
                     <div class="btn-group">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Action
                         </button>
                         <div class="dropdown-menu shadow animated--grow-in">
-                            <a class="dropdown-item">
-                                <i class="fas fa-pencil-alt"></i> Edit
+                            <a style='margin-right:16px' asp-controller="userroles" asp-action="Index" asp-route-userId="@user.Id" class="dropdown-item">
+                                <i class="fas fa-wrench"></i> Manage Roles
                             </a>
                             <form class="d-inline">
                                 <a class="dropdown-item"><i class="fas fa-trash-alt"></i> Delete</a>
                             </form>
-                            @if (role.Name != "SuperAdmin")
+                            @if (user.UserName != "SuperAdmin")
                             {
 
-                                <a style='margin-right:16px' asp-controller="Permission" asp-action="Index" asp-route-roleId="@role.Id" class="dropdown-item">
+                                <a style='margin-right:16px' asp-controller="Permission" asp-action="Index" asp-route-roleId="@user.Id" class="dropdown-item">
                                     <i class="fas fa-wrench"></i> Manage Permissions
                                 </a>
                             }
                         </div>
+
                     </div>
                 </td>
             </tr>
         }
     </tbody>
-</table>
+</table>*@
+
+@*@using Microsoft.AspNetCore.Identity;
+@model IEnumerable<IdentityUser>
+
+@{
+    ViewData["Title"] = "Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Users</h1>
+<br />
+@if (User.IsInRole("SuperAdmin"))
+{
+    <form method="post" asp-action="addrole" asp-controller="roles">
+        <div class="input-group">
+            <input name="roleName" class="form-control w-25">
+            <span class="input-group-btn">
+                <button class="btn btn-info">Add New Role</button>
+            </span>
+        </div>
+    </form>
+}
+<table class="table table-striped" id="userTable">
+    <thead>
+        <tr>
+            <th>
+                User
+            </th>
+            <th>
+                Email
+            </th>
+
+            <th style="width:10%">
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>
+                    <div class="row">
+                        <div class="col-sm">
+                            <a>
+                                @user.UserName
+                            </a>
+                            <br>
+                            <small>
+                                @user.Id
+                            </small>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <a>
+                        @user.Email
+                    </a>
+                </td>
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Action
+                        </button>
+                        <div class="dropdown-menu shadow animated--grow-in">
+                            @if (User.IsInRole("SuperAdmin"))
+                            {
+                                <a style='margin-right:16px' asp-controller="userroles" asp-action="Index" asp-route-userId="@user.Id" class="dropdown-item">
+                                    <i class="fas fa-wrench"></i> Manage Roles
+                                </a>
+                                <form class="d-inline">
+                                    <a class="dropdown-item"><i class="fas fa-trash-alt"></i> Delete</a>
+                                </form>
+                                @if (user.UserName != "SuperAdmin")
+                                {
+                                    <a style='margin-right:16px' asp-controller="Permission" asp-action="Index" asp-route-roleId="@user.Id" class="dropdown-item">
+                                        <i class="fas fa-wrench"></i> Manage Permissions
+                                    </a>
+                                }
+                            }
+                            else
+                            {
+                                <div class="dropdown-item disabled">
+                                    <i class="fas fa-lock"></i> Access Denied
+                                </div>
+                            }
+                        </div>
+
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>*@
+
+@using Microsoft.AspNetCore.Identity;
+@model IEnumerable<IdentityUser>
+@{
+    ViewData["Title"] = "Users";
+}
+
+@if (User.Identity.IsAuthenticated && !User.IsInRole("SuperAdmin"))
+{
+    <h1>Access Denied</h1>
+}
+else
+{
+    <h1>Users</h1>
+    <br />
+    <form method="post" asp-action="addrole" asp-controller="roles">
+        <div class="input-group">
+            <input name="roleName" class="form-control w-25">
+            <span class="input-group-btn">
+                <button class="btn btn-info">Add New Role</button>
+            </span>
+        </div>
+    </form>
+    <table class="table table-striped" id="userTable">
+        <thead>
+            <tr>
+                <th>
+                    User
+                </th>
+                <th>
+                    Email
+                </th>
+
+                <th style="width:10%">
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>
+                        <div class="row">
+                            <div class="col-sm">
+                                <a>
+                                    @user.UserName
+                                </a>
+                                <br>
+                                <small>
+                                    @user.Id
+                                </small>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <a>
+                            @user.Email
+                        </a>
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Action
+                            </button>
+                            <div class="dropdown-menu shadow animated--grow-in">
+                                <a style='margin-right:16px' asp-controller="userroles" asp-action="Index" asp-route-userId="@user.Id" class="dropdown-item">
+                                    <i class="fas fa-wrench"></i> Manage Roles
+                                </a>
+                                @if (User.Identity.IsAuthenticated && User.IsInRole("SuperAdmin"))
+                                {
+                                    <form class="d-inline">
+                                        <a class="dropdown-item"><i class="fas fa-trash-alt"></i> Delete</a>
+                                    </form>
+                                    <a style='margin-right:16px' asp-controller="Permission" asp-action="Index" asp-route-roleId="@user.Id" class="dropdown-item">
+                                        <i class="fas fa-wrench"></i> Manage Permissions
+                                    </a>
+                                }
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
