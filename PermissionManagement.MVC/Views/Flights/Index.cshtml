@@ -6,9 +6,15 @@
 
 <h1>Flights</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+@if(User.Identity.IsAuthenticated && !User.IsInRole("SuperAdmin"))
+{
+    <p></p>
+}
+else{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+}
 <table class="table">
     <thead>
         <tr>
@@ -71,13 +77,34 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.BusinessClassCapacity)
+
             </td>
+                <td>
+                <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="checkBusinessClassCapacity">
+                        <label class="form-check-label" for="checkBusinessClassCapacity">
+                            Book
+                        </label>
+                    </div>
+            </td>
+                
+
+
+                @if (User.Identity.IsAuthenticated && !User.IsInRole("SuperAdmin"))
+                {
+                    <p></p>
+                }
+                else{
             <td>
                 <a asp-action="Edit" asp-route-id="@item.FlightId">Edit</a> 
                 <a asp-action="Details" asp-route-id="@item.FlightId">Details</a> 
                 <a asp-action="Delete" asp-route-id="@item.FlightId">Delete</a>
             </td>
+                }
+
+               
         </tr>
 }
     </tbody>
 </table>
+
